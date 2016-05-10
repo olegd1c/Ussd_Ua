@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference
+        android:key="useDualSim"
+        android:summary="@string/SummaryDualSim"
+        android:title="@string/DualSim">
+    </CheckBoxPreference>
+    <ListPreference
+        android:entries="@array/language"
+        android:entryValues="@array/language_values"
+        android:key="language"
+        android:summary="@string/language_summary"
+        android:title="@string/language_title">
+    </ListPreference>
+
+    <PreferenceCategory
+        android:key="categOperator"
+        android:summary="Description of category 1"
+        android:title="@string/operator_title">
+        <CheckBoxPreference
+            android:key="life"
+            android:summary=""
+            android:title="@string/life_title"
+            android:defaultValue="@bool/myPrefDefault"
+            >
+        </CheckBoxPreference>
+        <CheckBoxPreference
+            android:key="mts"
+            android:summary=""
+            android:title="@string/mts_title"
+            android:defaultValue="@bool/myPrefDefault"
+            >
+        </CheckBoxPreference>
+        <CheckBoxPreference
+            android:key="ks"
+            android:summary=""
+            android:title="@string/ks_title"
+            android:defaultValue="@bool/myPrefDefault"
+            >
+        </CheckBoxPreference>
+    </PreferenceCategory>
+</PreferenceScreen>

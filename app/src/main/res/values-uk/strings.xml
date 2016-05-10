@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Ussd</string>
+    <string name="action_settings">Налаштування</string>
+    <string name="mts">МТС</string>
+    <string name="KS">Київстар</string>
+    <string name="Life">Лайф</string>
+    <string name="DualSim">Режим ""Дві сімкарти""</string>
+    <string name="SummaryDualSim">Можливість вибора сім-карти для відправки запросу"</string>
+    <string name="TitleLayout">"Список USSD команд операторів"</string>
+    <string name="PreferencesTitle">"Налаштування"</string>
+    <string name="language_title">Мова додатка</string>
+    <string name="language_summary">Виберіть мову додатка</string>
+    <string name="changePref">Змінені налаштування. Перезайдіть в додаток</string>
+    <string-array name="language">
+        <item>Русский</item>
+        <item>Українська</item>
+    </string-array>
+    <string-array name="language_values">
+        <item>ru</item>
+        <item>uk</item>
+    </string-array>
+</resources>

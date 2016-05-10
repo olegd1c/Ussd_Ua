@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Ussd</string>
+    <string name="action_settings">Settings</string>
+    <string name="mts">mts</string>
+    <string name="KS">Киевстар</string>
+    <string name="Life">Лайф</string>
+    <string name="DualSim">Режим ""Две симкарты""</string>
+    <string name="SummaryDualSim">Возможность выбора сим-карты для отправки запроса"</string>
+    <string name="TitleLayout">"Список USSD команд операторов"</string>
+    <string name="PreferencesTitle">"Настройки"</string>
+    <string name="language_title">Язык приложения</string>
+    <string name="language_summary">Выберите язык приложения</string>
+    <string name="changePref">Изменены настройки. Перезапустите приложение!</string>
+    <string name="operator_title">Список используемых операторов</string>
+    <string name="life_title">Лайф</string>
+    <string name="mts_title">МТС</string>
+    <string name="ks_title">Киевстар</string>
+
+    <string-array name="language">
+        <item>Русский</item>
+        <item>Українська</item>
+    </string-array>
+    <string-array name="language_values">
+        <item>ru</item>
+        <item>uk</item>
+    </string-array>
+
+    <string-array name="operator">
+        <item>Лайф</item>
+        <item>МТС</item>
+        <item>Киевстар</item>
+    </string-array>
+    <string-array name="operator_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+</resources>
