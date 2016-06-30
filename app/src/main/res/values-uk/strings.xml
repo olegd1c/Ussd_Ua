@@ -12,7 +12,12 @@
     <string name="PreferencesTitle">"Налаштування"</string>
     <string name="language_title">Мова додатка</string>
     <string name="language_summary">Виберіть мову додатка</string>
-    <string name="changePref">Змінені налаштування. Перезайдіть в додаток</string>
+    <string name="changePref">Змінені налаштування. Перезайдіть в додаток!</string>
+    <string name="operator_title">Список вікористовуваних операторів</string>
+    <string name="life_title">Лайф</string>
+    <string name="mts_title">МТС</string>
+    <string name="ks_title">Київстар</string>
+
     <string-array name="language">
         <item>Русский</item>
         <item>Українська</item>
@@ -20,5 +25,16 @@
     <string-array name="language_values">
         <item>ru</item>
         <item>uk</item>
+    </string-array>
+
+    <string-array name="operator">
+        <item>Лайф</item>
+        <item>МТС</item>
+        <item>Київстар</item>
+    </string-array>
+    <string-array name="operator_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
     </string-array>
 </resources>

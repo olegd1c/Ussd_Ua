@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -16,21 +17,25 @@ import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.SimpleCursorTreeAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
-    final String LOG_TAG = "myLogs";
-    ExpandableListView elvMain;
-    DB db;
-    boolean useDualSim;
-    SharedPreferences sp;
+    private final String LOG_TAG = "myLogs";
+    private ExpandableListView elvMain;
+    private DB db;
+    private boolean useDualSim;
+    private SharedPreferences sp;
     /**
      * Called when the activity is first created.
      */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
-// получаем SharedPreferences, которое работает с файлом настроек
+
+        // получаем SharedPreferences, которое работает с файлом настроек
         sp = PreferenceManager.getDefaultSharedPreferences(this);
+        CheckLang(false);
+
+        setContentView(R.layout.main);
 
         // подключаемся к БД
         db = new DB(this);
@@ -69,15 +74,43 @@ public class MainActivity extends Activity {
                 return false;
             }
         });
+    }
 
-
+    private void CheckLang(boolean b) {
+        //проверить язык
+//        String localeNow = getResources().getConfiguration().locale.getLanguage();
+//        String languagePref = sp.getString("language", "ru");
+//        if (!localeNow.equals(languagePref)){
+//            //установить язык
+//            Locale locale = new Locale(languagePref);
+//            Locale.setDefault(locale);
+//            Configuration config = new Configuration();
+//            config.locale = locale;
+//            getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+        if(MyApp.ChangeLang(getResources(), this)
+                || MyApp.isReloadCon()){
+            if(b) {
+                db.ReLoadData();
+            }
+        }
     }
 
     protected void onResume() {
         useDualSim = sp.getBoolean("useDualSim", false);
-
+        CheckLang(true);
+        if(MyApp.isReloadCon()){
+            MyApp.setReloadCon(false);
+            if (Build.VERSION.SDK_INT >=11) {
+                this.recreate();
+            }
+            else {
+                Toast.makeText(this,
+                        R.string.changePref, Toast.LENGTH_SHORT).show();
+            }
+        }
         super.onResume();
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         menu.add(0, 1, 1, R.string.PreferencesTitle);
@@ -111,7 +144,7 @@ public class MainActivity extends Activity {
         db.close();
     }
 
-    public void procColl(String Contacts_Phone) {
+    private void procColl(String Contacts_Phone) {
 
         Log.d(LOG_TAG, "Contacts_Phone: " + Contacts_Phone);
 
